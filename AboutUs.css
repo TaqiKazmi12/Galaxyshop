@@ -1,0 +1,185 @@
+/* Header Starting */
+.AboutUsheader {
+    padding: 60px 20px;
+    background-color: #000041; 
+    color: #ffffff; 
+    text-align: center;
+    background-image: url('FaqBg.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    position: relative; 
+}
+
+.AboutUsheader-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; 
+    z-index: 1; 
+}
+
+.AboutUsheader h1 span {
+    font-size: 48px; 
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%); 
+    background-size: 200% 100%;
+    color: #000041; 
+    padding: 5px 10px;
+    border-radius: 4px; 
+    display: inline-block;
+    animation: bgAnimation 1.5s infinite;
+}
+
+.AboutUsheader h1 {
+    font-size: 48px; 
+    margin-bottom: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; 
+    font-weight: 700; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); 
+    display: inline; 
+}
+
+.AboutUsheader p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff; 
+}
+/* Header Ending */
+
+
+@keyframes bgAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+/* Header Ending */
+
+/* About Section Starting */
+.About {
+    padding: 60px 20px;
+    background-image: url(CtaBg.png);
+}
+
+.About-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.About-text {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.About-text h2 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.About-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+.About-image {
+    flex: 1;
+}
+
+.About-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+/* About Section Ending */
+
+/* Mission and Values Section Starting */
+.MissionValues {
+    padding: 60px 20px;
+    background-color: #000041; 
+    color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out; 
+}
+
+.MissionValues-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.MissionValues h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffcc00; 
+    text-decoration: underline;
+    text-decoration-color: #ffcc00; 
+    text-decoration-thickness: 4px; 
+    animation: slideIn 1s ease-out; 
+}
+
+.MissionValues p {
+    font-size: 18px;
+    line-height: 1.6;
+    animation: fadeIn 1.5s ease-in-out; 
+}
+
+.MissionValues ul {
+    list-style-type: none;
+    padding: 0;
+    animation: fadeIn 2s ease-in-out; 
+}
+
+.MissionValues li {
+    font-size: 18px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #ffffff; 
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .MissionValues {
+        padding: 40px 10px;
+    }
+
+    .MissionValues-content {
+        width: 100%;
+    }
+
+    .MissionValues ul {
+        padding-left: 0;
+    }
+}
+/* Mission and Values Section Ending */
+

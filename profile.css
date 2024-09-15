@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    font-family: 'Zilla Slab Highlight', serif;
+    background-color: #000041; 
+    color: #ffffff; 
+}
+
+.ProfileHeader {
+    background-image: url('FaqBg.png'); 
+    background-size: cover;
+    background-position: center;
+    padding: 60px 40px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.ProfileHeader h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-color: #ffcc00; 
+}
+
+.ProfileHeader p {
+    font-size: 18px;
+}
+
+.profile-info {
+    padding: 20px;
+}
+
+
+.profile-info h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+    text-decoration-color: #ffcc00; 
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.profile-info .profile-details {
+    margin-bottom: 20px;
+}
+
+.profile-info button {
+    background-color: #ffcc00; 
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-info button:hover {
+    background-color: #e0a800; 
+}
+
+.account-type {
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+.my-orders-button {
+    background-color: #ffcc00; 
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.my-orders-button:hover {
+    background-color: #e0a800; 
+}
+
+.logout-button {
+    background-color: #e74c3c; 
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c0392b; 
+}
+
+.profile-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; 
+}
+
+.profile-picture, .account-settings, .saved-items, .payment-methods, .notifications, .security-settings {
+    flex: 1 1 calc(33.333% - 20px); 
+    box-sizing: border-box;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.footer {
+    background-color: #000041;
+    color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-logo {
+    max-width: 150px;
+}
+
+.footer-description {
+    font-size: 16px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.links-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.links-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links-section ul li {
+    margin-bottom: 5px;
+}
+
+.links-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.newsletter {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.newsletter form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.newsletter button {
+    background-color: #ffcc00; 
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: #e0a800; 
+}
+.account-settings{
+    margin-left: 20px;
+}

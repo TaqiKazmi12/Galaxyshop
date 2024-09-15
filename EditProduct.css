@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url('FaqBg.png') no-repeat center center/cover;
+    padding: 20px;
+    color: white;
+}
+
+.edit-product-section {
+    background: url('FaqBg.png') no-repeat center center/cover;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.edit-product {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.edit-product h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.edit-product form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-product label {
+    margin: 10px 0 5px;
+}
+
+.edit-product input,
+.edit-product textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.edit-product textarea {
+    resize: none;
+}
+
+.edit-product button {
+    background-color: #f9c74f; 
+    color: black; 
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.edit-product button:hover {
+    background-color: #f6e05e; 
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+}

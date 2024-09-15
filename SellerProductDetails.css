@@ -1,0 +1,132 @@
+.product-inner-page {
+    padding: 40px;
+    background: url('FaqBg.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 60px;
+    background-color: transparent !important; 
+    padding: 20px;
+    border-radius: 10px;
+}
+.delete-btn{
+    background-color: red !important;
+}
+.product-image {
+    flex: 1;
+    max-width: 400px; 
+}
+
+.product-image img {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.product-details {
+    flex: 1;
+    max-width: 600px;
+}
+
+.product-details h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: #ffcc00; 
+}
+
+.product-description {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.product-rating {
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: #ffcc00; 
+}
+
+.product-rating i {
+    color: #ffcc00; 
+}
+
+.product-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.product-actions button {
+    background-color: #ffcc00;
+    color: #f8f8f8;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.product-actions button:hover {
+    background-color: #e0a800;
+    transform: scale(1.05); 
+}
+
+.related-products {
+    margin-top: 40px;
+}
+
+.related-products h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.cta-button {
+    background-color: #ffcc00;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 24px; 
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    opacity: 1 !important;
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+}
+.product-image {
+    flex: 1;
+    max-width: 400px;
+    overflow: hidden; 
+    border-radius: 10px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease; 
+}
+
+.product-image:hover img {
+    transform: scale(1.1); 
+}

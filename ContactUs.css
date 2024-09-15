@@ -1,0 +1,113 @@
+/* Contact Us Header Starting */
+.ContactUsheader {
+    padding: 60px 20px;
+    background-color: #000041; /* Dark background for contrast */
+    color: #ffffff; /* Light text color */
+    text-align: center;
+    background-image: url('/FaqBg.png'); /* Replace with your image path */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    position: relative; /* Allow positioning of pseudo-elements if needed */
+}
+
+.ContactUsheader-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Ensure content is positioned above background image */
+    z-index: 1; /* Ensure content is on top of the background image */
+}
+
+.ContactUsheader h1 span {
+    font-size: 48px; /* Match the size of the heading */
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff 100%); /* White background gradient */
+    background-size: 200% 100%;
+    color: #000041; /* Text color matching the background color of the website */
+    padding: 5px 10px;
+    border-radius: 4px; /* Rounded corners for the background */
+    display: inline-block;
+    animation: bgAnimation 1.5s infinite; /* Animation duration and iteration */
+}
+
+.ContactUsheader h1 {
+    font-size: 48px; /* Adjust font size as needed */
+    margin-bottom: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Updated font family */
+    font-weight: 700; /* Make the heading bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Add a subtle shadow for better readability */
+    display: inline; /* Ensure it aligns with span styling */
+}
+
+.ContactUsheader p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff; /* Light text color */
+}
+/* Contact Us Header Ending */
+
+/* Contact Details Section Starting */
+.ContactDetails {
+    padding: 60px 20px;
+    background-color: #000041; /* Dark background for contrast */
+    color: #ffffff; /* Light text color */
+    text-align: center;
+}
+
+.ContactDetails-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ContactDetails h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Light text color */
+}
+
+.ContactDetails p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.ContactDetails a {
+    color: #ffcc00; /* Yellow color for links */
+    text-decoration: none;
+}
+
+.ContactDetails a:hover {
+    text-decoration: underline;
+}
+/* Contact Details Section Ending */
+
+/* Map Section Starting */
+.ContactMap {
+    padding: 60px 20px;
+    background-color: #000041; /* Dark background for map section */
+}
+
+.ContactMap-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ContactMap h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Light text color */
+}
+
+.map-container {
+    width: 100%;
+    height: 400px; /* Height of the map */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+/* Map Section Ending */
