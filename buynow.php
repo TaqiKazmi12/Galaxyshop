@@ -279,41 +279,42 @@ $conn->close();
     </div>
 
     <div class="payment-methods">
-        <h2>Select Payment Method</h2>
-        <form id="payment-form" action="process_payment.php" method="POST">
-            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product_id); ?>">
-            
-            <?php if ($isLoggedIn && !empty($primaryPaymentMethods)): ?>
-                <label>
-                    <input type="radio" name="payment_method" value="" id="saved-payment" checked>
-                    Saved Payment Method
-                </label>
-                <select id="saved-payment-method" name="saved_payment_method">
-                    <?php foreach ($primaryPaymentMethods as $method): ?>
-                        <option value="<?php echo htmlspecialchars($method['id']); ?>">
-                            <?php echo htmlspecialchars(substr($method['card_number'], -4)); ?> (Expires: <?php echo htmlspecialchars($method['expiration_date']); ?>)
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            <?php endif; ?>
-            
-            <label>
-                <input type="radio" name="payment_method" value="online" id="online-payment">
-                Online Payment
-            </label>
-            
-            <label>
-                <input type="radio" name="payment_method" value="cod" checked>
-                Cash on Delivery
-            </label>
-            
-            <input type="text" id="address" name="address" placeholder="Enter your address" required>
-            <input type="text" id="contact_number" name="contact_number" placeholder="Enter your contact number" required pattern="\d*" maxlength="15">
-            <div id="form-errors" class="form-errors"></div>
+    <h2>Select Payment Method</h2>
+    <form id="payment-form" action="process_payment.php" method="POST">
+        <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product_id); ?>">
 
-            <button type="submit" class="cta-button">Proceed to Checkout</button>
-        </form>
-    </div>
+        <?php if ($isLoggedIn && !empty($primaryPaymentMethods)): ?>
+            <label>
+                <input type="radio" name="payment_method" value="online_saved" id="saved-payment" checked>
+                Saved Payment Method
+            </label>
+            <select id="saved-payment-method" name="saved_payment_method">
+                <?php foreach ($primaryPaymentMethods as $method): ?>
+                    <option value="<?php echo htmlspecialchars($method['id']); ?>">
+                        <?php echo htmlspecialchars(substr($method['card_number'], -4)); ?> (Expires: <?php echo htmlspecialchars($method['expiration_date']); ?>)
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        <?php endif; ?>
+
+        <label>
+            <input type="radio" name="payment_method" value="online" id="online-payment">
+            Online Payment
+        </label>
+
+        <label>
+            <input type="radio" name="payment_method" value="cod" checked>
+            Cash on Delivery
+        </label>
+
+        <input type="text" id="address" name="address" placeholder="Enter your address" required>
+        <input type="text" id="contact_number" name="contact_number" placeholder="Enter your contact number" required pattern="\d*" maxlength="15">
+        <div id="form-errors" class="form-errors"></div>
+
+        <button type="submit" class="cta-button">Proceed to Checkout</button>
+    </form>
+</div>
+
 </section>
 
 <!-- Modal for Online Payment -->
@@ -357,16 +358,18 @@ $conn->close();
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var onlinePaymentModal = document.getElementById("online-payment-modal");
-    var closeAndSelectButtons = onlinePaymentModal.querySelectorAll(".close-button, .select-card");
+    var closeButtons = document.querySelectorAll(".close-button");
+    var selectCardButtons = document.querySelectorAll(".select-card"); 
     var paymentRadioButtons = document.querySelectorAll('input[name="payment_method"]');
     var savedPaymentMethod = document.getElementById('saved-payment-method');
     var contactNumberInput = document.getElementById('contact_number');
     var formErrors = document.getElementById('form-errors');
 
+   
     function validateContactNumber() {
         var contactNumber = contactNumberInput.value;
         var isValid = /^\d{10,15}$/.test(contactNumber);
-        
+
         if (!isValid) {
             contactNumberInput.classList.add('input-error');
             formErrors.textContent = 'Contact number must be between 10 and 15 digits.';
@@ -374,46 +377,58 @@ document.addEventListener('DOMContentLoaded', function () {
             contactNumberInput.classList.remove('input-error');
             formErrors.textContent = '';
         }
-        
+
         return isValid;
     }
 
+   
     contactNumberInput.addEventListener('input', validateContactNumber);
-    
+
+   
     paymentRadioButtons.forEach(function (radio) {
         radio.addEventListener('change', function () {
             if (this.value === 'online' && this.checked) {
-                onlinePaymentModal.style.display = "block";
+                onlinePaymentModal.style.display = "block"; 
             } else {
-                onlinePaymentModal.style.display = "none";
+                onlinePaymentModal.style.display = "none";  
             }
         });
     });
 
-    closeAndSelectButtons.forEach(function (button) {
+  
+    function closeModal() {
+        onlinePaymentModal.style.display = "none";
+    }
+
+   
+    closeButtons.forEach(function (button) {
+        button.addEventListener('click', closeModal);
+    });
+
+   
+    selectCardButtons.forEach(function (button) {
         button.addEventListener('click', function () {
-            if (button.classList.contains('close-button')) {
-                onlinePaymentModal.style.display = "none";
-            } else if (button.classList.contains('select-card')) {
-                var cardId = button.getAttribute('data-id');
-                savedPaymentMethod.value = cardId;
-                onlinePaymentModal.style.display = "none";
-            }
+            var cardId = button.getAttribute('data-id');
+            savedPaymentMethod.value = cardId; 
+            closeModal(); 
         });
     });
 
+    
     window.addEventListener('click', function (event) {
         if (event.target === onlinePaymentModal) {
-            onlinePaymentModal.style.display = "none";
+            closeModal();
         }
     });
 
+   
     paymentForm.addEventListener('submit', function (event) {
         if (!validateContactNumber()) {
-            event.preventDefault(); 
+            event.preventDefault();  
         }
     });
 });
+
 
 
 </script>
