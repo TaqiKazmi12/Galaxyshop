@@ -54,7 +54,7 @@ $query = "
     FROM wishlists w 
     JOIN products p ON w.product_id = p.id 
     WHERE w.user_id = (
-        SELECT id FROM users WHERE email = ?  -- Adjust according to your actual database schema
+        SELECT id FROM users WHERE email = ?  
     )
 ";
 
@@ -102,6 +102,7 @@ $conn->close();
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab+Highlight:wght@700&family=Norican&display=swap">
   <link rel="icon" href="FavLogo.png" type="image/x-icon">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   
 </head>
@@ -154,24 +155,78 @@ $conn->close();
    
     <h1>Your Cart</h1>
 
-    <section class="cart">
-        <?php if (empty($cart_items)): ?>
-            <p class="emptycart">Your cart is empty.</p>
-        <?php else: ?>
-            <?php foreach ($cart_items as $item): ?>
-            <div class="product-card">
-                <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
-                <div class="product-info">
-                    <h3><?php echo htmlspecialchars($item['name']); ?></h3>
-                    <p><?php echo htmlspecialchars($item['description']); ?></p>
-                    <p>Price: $<?php echo number_format($item['price'], 2); ?></p>
-                    <a href="ProductInnerPage.php?id=<?php echo $item['id']; ?>" class="cta-button">Check Out</a>
-                </div>
+
+<script>
+    $(document).ready(function() {
+        $('.remove-button').on('click', function() {
+            var productId = $(this).closest('.remove-form').data('product-id');
+            var $productCard = $(this).closest('.product-card');
+
+          
+            $.ajax({
+                url: 'remove_from_cart.php',
+                method: 'POST',
+                data: { product_id: productId },
+                success: function(response) {
+                  
+                    $productCard.remove();
+                },
+                error: function() {
+                    alert('Failed to remove the item. Please try again.');
+                }
+            });
+        });
+    });
+</script>
+
+<section class="cart">
+    <?php if (empty($cart_items)): ?>
+        <p class="emptycart">Your cart is empty.</p>
+    <?php else: ?>
+        <?php foreach ($cart_items as $item): ?>
+        <div class="product-card">
+           
+            <form action="remove_from_cart.php" method="POST" class="remove-form">
+                <input type="hidden" name="product_id" value="<?php echo $item['id']; ?>">
+                <button type="submit" class="remove-button">
+                    <i class="fas fa-times"></i> 
+                </button>
+            </form>
+
+            <img src="<?php echo htmlspecialchars($item['image_url']); ?>" alt="<?php echo htmlspecialchars($item['name']); ?>">
+            <div class="product-info">
+                <h3><?php echo htmlspecialchars($item['name']); ?></h3>
+                <p><?php echo htmlspecialchars($item['description']); ?></p>
+                <p>Price: $<?php echo number_format($item['price'], 2); ?></p>
+                <a href="ProductInnerPage.php?id=<?php echo $item['id']; ?>" class="cta-button">Check Out</a>
             </div>
-            <?php endforeach; ?>
-        <?php endif; ?>
-    </section>
+        </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</section>
+
+
     <style>
+   .remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    display: block !important;
+    z-index: 2000;
+}
+.remove-button i {
+    font-size: 24px; 
+}
+
+.remove-button:hover {
+    color: darkred; 
+}
+
         .product-card{
             opacity: 1 !important;
         }
